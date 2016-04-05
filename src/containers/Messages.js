@@ -13,6 +13,7 @@ class Messages extends Component {
 
     return (
       <div className='col-md-8'>
+        <h2>Messages</h2>
         {mesList}
       </div>
     );

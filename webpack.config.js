@@ -43,6 +43,10 @@ module.exports = {
       {
         test:   /\.css$/,
         loader: "style-loader!css-loader!postcss-loader"
+      },
+      { test: /\.svg$/, loader: 'svg-loader?{png:{scale:2}}' },
+      {
+        test: /\.(png|woff|woff2|eot|ttf)$/, loader: 'url-loader?limit=100000' 
       }
     ]
   },

@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import Label from '../components/label'
 import * as pageActions from '../actions/PageActions'
 
-class Messages extends Component {
+class Labels extends Component {
   render() {
-    const messages = this.props.messages;
-    console.log('messages: ', messages);
+    const {labels} = this.props;
+    console.log('labels: ', labels);
+    let labelsList = labels.map( (item, index) => 
+      <Label text={item.text} key={index} />
+    );
 
     return (
       <div className='col-md-4'>
+        <h2>Labels</h2>
+        {labelsList}
       </div>
     );
 
@@ -18,7 +24,6 @@ class Messages extends Component {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages,
     labels: state.labels
   }
 }
@@ -29,4 +34,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Messages)
+export default connect(mapStateToProps, mapDispatchToProps)(Labels)
